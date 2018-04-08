@@ -1,4 +1,5 @@
 import Background from './Background';
+import CurrentWeather from './CurrentWeather';
 import React, { Component } from 'react';
 
 class App extends Component {
@@ -11,6 +12,7 @@ render(){
   return (
       <div className ='App'>
         <Background />
+        <CurrentWeather />
       </div>
   )
 }
