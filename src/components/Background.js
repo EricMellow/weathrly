@@ -1,7 +1,9 @@
+import React, { Component } from 'react';
+import './styles/Background.css'
+
 const Background = () => {
   return (
     <div className='Background'>
-    <h1>Hola!</h1>
     </div>
   )
 }
