@@ -5,10 +5,16 @@
   height: 100vh;
   background-image: url('../../assets/warm-background.jpg');
   background-size: cover;
+  position: fixed;
+  z-index: 0;
 }
 
 h1 {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 26px;
   color: red;
+}
+
+html {
+ 
 }
