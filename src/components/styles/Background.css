@@ -1,0 +1,13 @@
+@import url('reset.css');
+
+.Background {
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/warm-background.jpg');
+}
+
+h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 26px;
+  color: red;
+}
