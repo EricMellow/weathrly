@@ -1,0 +1,33 @@
+@import url('reset.css');
+
+.Card{
+  width: 10vw;
+  height: 20vh;
+  position: absolute;
+  text-align: center;
+}
+
+.background{
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: .7;
+  position: absolute;
+  z-index: 1;
+}
+
+.Card img {
+  height: 6vh;
+  margin: 2vh;
+}
+
+.Card h3 {
+  z-index: 30;
+  font-size: 4vh;
+  color: red;
+}
+
+.high-low{
+  display: flex;
+  justify-content: space-around;
+}
