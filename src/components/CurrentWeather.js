@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './styles/Current-weather.css'
+import './styles/Current-weather.css';
 
 const CurrentWeather = () => {
-  return(
+  return (
     <div className = 'CurrentWeather'> 
       <h1 className = 'current-temp'>23°</h1>
       <h2> Partly Cloudy </h2>
@@ -12,11 +12,11 @@ const CurrentWeather = () => {
       </div>
       <article>Today's weather is going to be windy af, but it will also be sunny and warm, so that's kinda cool, right?!</article>
       <div className = 'view-buttons'> 
-        <button> 7 Hour forecast </button>
-        <button> 10 days</button>
+        <button> 7 hour forecast </button>
+        <button> 10 day forecast</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default CurrentWeather;

@@ -3,19 +3,19 @@ import CurrentWeather from './CurrentWeather';
 import React, { Component } from 'react';
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state = {}
+    this.state = {};
   }
  
-render(){
-  return (
+  render() {
+    return (
       <div className ='App'>
         <Background />
         <CurrentWeather />
       </div>
-  )
-}
+    );
+  }
 }
 
 export default App;
