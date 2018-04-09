@@ -6,7 +6,7 @@
   background-image: url('../../assets/warm-background.jpg');
   background-size: cover;
   position: fixed;
-  z-index: 0;
+  z-index: -1;
 }
 
 h1 {
