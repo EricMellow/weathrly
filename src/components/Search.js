@@ -14,7 +14,7 @@ class Search extends Component {
       <div className = 'searchBar'> 
         <input 
           type = 'text' 
-          value = {this.state.locationInput}   
+          placeholder = {this.state.locationInput}   
         />
         <h3> 
           Tuesday, April 10th
