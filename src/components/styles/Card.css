@@ -1,6 +1,7 @@
 @import url('reset.css');
 
 .Card{
+  margin-left: 2vw; 
   width: 125px;
   height: 25vh;
   text-align: center;
