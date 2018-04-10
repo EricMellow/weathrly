@@ -3,9 +3,8 @@ import './styles/Current-weather.css';
 import TenDayForecast from './TenDayForecast';
 import SevenHourForecast from './SevenHourForecast';
 
-
 class CurrentWeather extends Component {
-  constructor () {
+  constructor (props) {
     super()
     this.state ={
       tenDayClicked: false,
@@ -40,13 +39,13 @@ class CurrentWeather extends Component {
   render () {
     return (
       <div className='CurrentWeather'>
-        <h1 className='current-temp'>23°</h1>
-        <h2> Partly Cloudy </h2>
+        <h1 className='current-temp'>{this.props.currentTemp}°</h1>
+        <h2> {this.props.currentWeatherShortSummary}</h2>
         <div className='high-and-low'>
-          <h3>42°</h3>
-          <h3 className='low-temp'>13°</h3>
+          <h3>{this.props.highTemperature}°</h3>
+          <h3 className='low-temp'>{this.props.lowTemperature}°</h3>
         </div>
-        <article>Today's weather is going to be windy af, but it will also be sunny and warm, so that's kinda cool, right?!</article>
+        <article>{this.props.currentWeatherLongSummary}</article>
         <div className='view-buttons'>
           <button onClick={this.showSevenHour}> 7 hour forecast </button>
           <button onClick={this.showTen}> 10 day forecast</button>
