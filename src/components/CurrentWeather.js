@@ -31,7 +31,7 @@ class CurrentWeather extends Component {
           <button> 7 hour forecast </button>
           <button onClick ={this.showTen}> 10 day forecast</button>
         </div>
-          {this.state.tenDayClicked ? <TenDayForecast /> : null}    
+          {this.state.tenDayClicked ? <TenDayForecast /> : null}  
     </div>
     );
   };
