@@ -5,8 +5,7 @@
     height: 390px;
     background-color: hsla(0, 0%, 0%, 0.4);
     z-index: 30;
-    margin: 15vh auto;
-    /* position: absolute; */
+    margin: 9vh auto 5vh auto;
     color: #fff;
     display: flex;
     flex-direction: column;
