@@ -11,9 +11,9 @@ class CurrentWeather extends Component {
     this.showTen = this.showTen.bind(this)
   }
 
-  showTen (){
+  showTen() {
    this.setState({
-     tenDayClicked: true
+     tenDayClicked: !this.state.tenDayClicked
    })
   }
     
