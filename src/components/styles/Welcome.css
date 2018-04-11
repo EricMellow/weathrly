@@ -10,3 +10,7 @@ button {
   height: 50px;
   background-color: orange;
 }
+
+input {
+  background-color: red;
+}
