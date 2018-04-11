@@ -10,6 +10,8 @@ import Welcome from './Welcome';
 
 const weatherData = new DataCleaner;
 
+
+
 class App extends Component {
   constructor() {
     super();
