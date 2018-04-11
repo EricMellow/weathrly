@@ -3,7 +3,7 @@
 .CurrentWeather {
     width: 475px;
     height: 390px;
-    background-color: hsla(0, 0%, 0%, 0.4);
+    background-color: hsla(0, 0%, 0%, 0.6);
     z-index: 30;
     margin: 0 auto 5vh auto;
     color: #fff;

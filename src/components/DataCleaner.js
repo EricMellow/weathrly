@@ -10,7 +10,7 @@ class DataCleaner extends Component {
     this.currentWeatherShortSummary = data.current_observation.weather;
     this.highTemperature = data.forecast.simpleforecast.forecastday[0].high.fahrenheit;
     this.lowTemperature = data.forecast.simpleforecast.forecastday[0].low.fahrenheit;
-    this.currentWeatherLongSummary = data.forecast.txt_forecast.forecastday[0].fcttext_metric;
+    this.currentWeatherLongSummary = data.forecast.txt_forecast.forecastday[0].fcttext;
     this.sevenHourForecastHours = data.hourly_forecast.map(hour => hour.FCTTIME.civil);
     this.sevenHourForecastHours.splice(7);
     this.sevenHourForecastTemps = data.hourly_forecast.map(day =>  day.temp);
@@ -24,6 +24,7 @@ class DataCleaner extends Component {
   }
 }
 
-export default DataCleaner
+export default DataCleaner;
+
 
 
