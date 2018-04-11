@@ -1,0 +1,12 @@
+.Welcome {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/warm-background.jpg');
+  background-size: cover;
+  z-index: -1;
+}
+
+button {
+  height: 50px;
+  background-color: orange;
+}
