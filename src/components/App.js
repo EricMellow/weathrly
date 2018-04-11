@@ -5,7 +5,7 @@ import Card from './Card';
 import './styles/App.css'
 import React, { Component } from 'react';
 import DataCleaner from './DataCleaner';
-import getData from './GetData';
+import GetData from './GetData';
 import Welcome from './Welcome';
 
 const weatherData = new DataCleaner;
@@ -16,39 +16,46 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      cleanData: {},
+      city: '',
+      state: '',
       welcome: true,
-      location: weatherData.currentLocation,
-      currentTemp: weatherData.currentTemp,
-      highTemperature: weatherData.highTemperature,
-      lowTemperature: weatherData.lowTemperature,
-      currentWeatherLongSummary: weatherData.currentWeatherLongSummary,
-      currentWeatherShortSummary: weatherData.currentWeatherShortSummary
+     
     };
     this.changeWelcomeState = this.changeWelcomeState.bind(this);
+    this.updateLocation = this.updateLocation.bind(this)
   }
  
+  updateLocation(selectedInfo) {
+    console.log(selectedInfo)
+    this.setState({
+      city: selectedInfo.city,
+      state: selectedInfo.state
+    })
+  } 
+
   changeWelcomeState() {
     this.setState({
       welcome: false
     })
+    this.makeAPICall();
+  }
+
+  makeAPICall() {
+    GetData()
   }
 
   render() {
     if (this.state.welcome) {
-      return (<Welcome changeWelcomeState = {this.changeWelcomeState}/>)
+      return (<Welcome 
+        changeWelcomeState = {this.changeWelcomeState}
+        updateLocation = {this.updateLocation}
+        />)
     } else {
     return (
       <div className ='App'>
         <Background />
         <Search location = {this.state.location}/>
-        <CurrentWeather 
-          currentTemp = {this.state.currentTemp}
-          highTemperature = {this.state.highTemperature}
-          lowTemperature = {this.state.lowTemperature}
-          currentWeatherLongSummary = {this.state.currentWeatherLongSummary} 
-          currentWeatherShortSummary = {this.state.currentWeatherShortSummary}           
-        />
+        <CurrentWeather />
       </div>
     );
    }
