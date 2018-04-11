@@ -16,6 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      cleanData: {},
       welcome: true,
       location: weatherData.currentLocation,
       currentTemp: weatherData.currentTemp,

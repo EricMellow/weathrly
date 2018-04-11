@@ -1,7 +1,8 @@
 import React from 'react';
+import APIKey from './APIKey.js'
 
 const GetData = (city, state) => {
-  fetch("http://api.wunderground.com/api/88ef1e92ce237795/conditions/hourly/forecast10day/q/CA/San_Francisco.json").then((response) => {
+  fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${state}/${city}.json`).then((response) => {
     response.json().then(weatherData => console.log(weatherData))
   })
 }
