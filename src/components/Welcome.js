@@ -6,10 +6,9 @@ class Welcome extends Component {
     super(props);
   
     this.state = {
-      city: '',
-      state: '',
       userInput: ''
     }
+
     this.updateLocation = this.updateLocation.bind(this)
     this.captureInfo = this.captureInfo.bind(this)
     
@@ -24,21 +23,17 @@ class Welcome extends Component {
   updateLocation () {
     let locationInput = this.state.userInput
     let locationArray = locationInput.split(', ');
-    this.setState({
-      city: locationArray[0],
-      state: locationArray[1]
-    })
+    return locationArray
   }
 
   render () {
-    // const userInput = this.state
     return (
       <div className = "Welcome">
         <input type='text' onChange={(event) => this.captureInfo(event)}/>
         <button
-          onClick = { (event) => {
-            this.updateLocation()
-            this.props.handleUpdateLocation(this.state)
+          onClick = { () => {
+            this.props.setLocationState(this.updateLocation()[0], this.updateLocation()[1])
+            this.props.changeWelcomeState()
           }
           }
         />  
