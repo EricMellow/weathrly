@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import data from './Data'
 
-const DataCleaner = () => {
+const DataCleaner = (data) => {
+  console.log(data)
   return {
     currentWeather: {
       currentTemp: data.current_observation.temp_f,

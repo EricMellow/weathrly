@@ -1,9 +1,12 @@
 import React from 'react';
 import APIKey from './APIKey.js'
+import DataCleaner from './DataCleaner'
 
-const GetData = (city, state) => {
-  fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${state}/${city}.json`).then((response) => {
-    response.json().then(weatherData => weatherData)
+
+const GetData = (selectedCity, selectedState) => {
+console.log(selectedCity, selectedState)
+  fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${selectedState}/${selectedCity}.json`).then((response) => {
+    response.json().then(weatherData => DataCleaner(weatherData))
   })
 }
 

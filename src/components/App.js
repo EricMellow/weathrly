@@ -8,54 +8,50 @@ import DataCleaner from './DataCleaner';
 import GetData from './GetData';
 import Welcome from './Welcome';
 
-const weatherData = new DataCleaner;
-
-
 
 class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
       location: {
-        city: '',
-        state: ''
+        selectedCity: '',
+        selectedState: ''
       },
       welcome: true,
+      locationWeather: {},
     };
 
     this.changeWelcomeState = this.changeWelcomeState.bind(this);
-    this.handleUpdateLocation = this.handleUpdateLocation.bind(this)
+    this.setLocationState = this.setLocationState.bind(this)
   }
  
-  handleUpdateLocation (selectedInfo) {
-    console.log('before', selectedInfo)
+  setLocationState(selectedCity, selectedState) {
     this.setState({
       location: {
-        city: selectedInfo.city,
-        state: selectedInfo.state
+        selectedCity: selectedCity,
+        selectedState: selectedState
       }
     })
-    console.log('after', this.state)
+    this.makeAPICall(selectedCity, selectedState);
   } 
 
   changeWelcomeState() {
     this.setState({
       welcome: false,
-      city: 'HI'
     })
-    console.log(this.state)
-    this.makeAPICall();
   }
 
-  makeAPICall() {
-    GetData()
+  makeAPICall(selectedCity, selectedState) {
+    this.setState({
+      locationWeather: GetData(selectedCity, selectedState)
+    }) 
   }
 
   render() {
     if (this.state.welcome) {
       return (<Welcome 
         changeWelcomeState = {this.changeWelcomeState}
-        handleUpdateLocation = {this.handleUpdateLocation}
+        setLocationState = {this.setLocationState}
         />)
     } else {
     return (
