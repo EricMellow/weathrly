@@ -16,24 +16,24 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      city: '',
-      state: '',
+      location: {
+        city: '',
+        state: ''
+      },
       welcome: true,
-     
     };
+
     this.changeWelcomeState = this.changeWelcomeState.bind(this);
     this.handleUpdateLocation = this.handleUpdateLocation.bind(this)
   }
  
   handleUpdateLocation (selectedInfo) {
-    console.log('before', this.state)
-    let locationArray = selectedInfo.split(' ');
-    let temporaryCity = locationArray[0].split('');
-    console.log(temporaryCity)
-    temporaryCity.pop();
+    console.log('before', selectedInfo)
     this.setState({
-      city: 'HI',
-      state: locationArray[1]
+      location: {
+        city: selectedInfo.city,
+        state: selectedInfo.state
+      }
     })
     console.log('after', this.state)
   } 
