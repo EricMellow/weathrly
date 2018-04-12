@@ -2,41 +2,43 @@ import React, { Component } from 'react';
 import './styles/Welcome.css'
 
 class Welcome extends Component {
-  constructor(props) {
-    super();
+  constructor (props) {
+    super(props);
   
     this.state = {
       city: '',
       state: '',
       userInput: ''
     }
+    this.updateLocation = this.updateLocation.bind(this)
+    this.captureInfo = this.captureInfo.bind(this)
+    
   }
 
-  captureInfo(event) {
+  captureInfo (event) {
     this.setState({
       userInput: event.target.value,
     })
   }
 
-  updateLocation() {
-    let locationArray = this.state.userInput.split(' ');
-    let temporaryCity = locationArray[0].split('')
-    temporaryCity.pop();
+  updateLocation () {
+    let locationInput = this.state.userInput
+    let locationArray = locationInput.split(', ');
     this.setState({
-      city: temporaryCity.join(''),
+      city: locationArray[0],
       state: locationArray[1]
     })
   }
 
-  render() {
+  render () {
+    const userInput = this.state.userInput
     return (
       <div className = "Welcome">
-        <input type='text' onChange={(event) => this.captureInfo(event)}></input>
-        <button onClick={() => {
-          this.updateLocation()
-          this.props.updateLocation(this.state)
-          this.props.changeWelcomeState()
-          }}></button>
+        <input type='text' onChange={(event) => this.captureInfo(event)}/>
+        <button
+          onClick = { (event) => this.updateLocation() }
+
+        />  
       </div>
 
     )

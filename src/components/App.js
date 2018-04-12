@@ -13,8 +13,8 @@ const weatherData = new DataCleaner;
 
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
       city: '',
       state: '',
@@ -22,21 +22,28 @@ class App extends Component {
      
     };
     this.changeWelcomeState = this.changeWelcomeState.bind(this);
-    this.updateLocation = this.updateLocation.bind(this)
+    this.handleUpdateLocation = this.handleUpdateLocation.bind(this)
   }
  
-  updateLocation(selectedInfo) {
-    console.log(selectedInfo)
+  handleUpdateLocation (selectedInfo) {
+    console.log('before', this.state)
+    let locationArray = selectedInfo.split(' ');
+    let temporaryCity = locationArray[0].split('');
+    console.log(temporaryCity)
+    temporaryCity.pop();
     this.setState({
-      city: selectedInfo.city,
-      state: selectedInfo.state
+      city: 'HI',
+      state: locationArray[1]
     })
+    console.log('after', this.state)
   } 
 
   changeWelcomeState() {
     this.setState({
-      welcome: false
+      welcome: false,
+      city: 'HI'
     })
+    console.log(this.state)
     this.makeAPICall();
   }
 
@@ -48,7 +55,7 @@ class App extends Component {
     if (this.state.welcome) {
       return (<Welcome 
         changeWelcomeState = {this.changeWelcomeState}
-        updateLocation = {this.updateLocation}
+        handleUpdateLocation = {this.handleUpdateLocation}
         />)
     } else {
     return (
