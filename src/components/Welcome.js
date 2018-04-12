@@ -31,13 +31,16 @@ class Welcome extends Component {
   }
 
   render () {
-    const userInput = this.state.userInput
+    // const userInput = this.state
     return (
       <div className = "Welcome">
         <input type='text' onChange={(event) => this.captureInfo(event)}/>
         <button
-          onClick = { (event) => this.updateLocation() }
-
+          onClick = { (event) => {
+            this.updateLocation()
+            this.props.handleUpdateLocation(this.state)
+          }
+          }
         />  
       </div>
 
