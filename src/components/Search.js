@@ -13,6 +13,7 @@ class Search extends Component {
     return (
       <div className = 'searchBar'> 
         <input 
+          className = 'searchDifferentLocation'
           type = 'text' 
           placeholder = {this.state.locationInput}   
         />

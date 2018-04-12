@@ -6,7 +6,7 @@
   justify-content: space-between;
 }
 
-input{
+.searchDifferentLocation {
   border: none;
   background: none;
   color:white;
@@ -15,11 +15,11 @@ input{
   height: 4vh;
 }
 
-input::placeholder{
+.searchDifferentLocation::placeholder{
   color:white;
 }
 
-input:focus{
+.searchDifferentLocation:focus{
   outline: none;
   opacity: .5;
 }

@@ -7,11 +7,12 @@ import React, { Component } from 'react';
 import DataCleaner from './DataCleaner';
 import GetData from './GetData';
 import Welcome from './Welcome';
+import getPosition from './LocationAPI.js';
 
 const weatherData = new DataCleaner;
+getPosition()
 
-
-
+GetData()
 class App extends Component {
   constructor (props) {
     super(props);
@@ -28,22 +29,18 @@ class App extends Component {
   }
  
   handleUpdateLocation (selectedInfo) {
-    console.log('before', selectedInfo)
     this.setState({
       location: {
         city: selectedInfo.city,
         state: selectedInfo.state
       }
     })
-    console.log('after', this.state)
   } 
 
   changeWelcomeState() {
     this.setState({
       welcome: false,
-      city: 'HI'
     })
-    console.log(this.state)
     this.makeAPICall();
   }
 

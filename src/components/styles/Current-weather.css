@@ -62,7 +62,7 @@ article {
     margin-bottom: 12vh; 
 }
 
-button {
+.displayCard {
     border: none;
     background: none;
     color: #fff;

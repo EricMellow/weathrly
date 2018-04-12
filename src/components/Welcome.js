@@ -33,15 +33,21 @@ class Welcome extends Component {
   render () {
     // const userInput = this.state
     return (
-      <div className = "Welcome">
-        <input type='text' onChange={(event) => this.captureInfo(event)}/>
-        <button
-          onClick = { (event) => {
-            this.updateLocation()
-            this.props.handleUpdateLocation(this.state)
-          }
-          }
-        />  
+      <div className = 'Welcome'>
+        <div className = 'blackBackground'>
+          <h5> Current Location </h5>
+          <div className = 'container'>
+            <input className = 'locationInput' placeholder = 'Find your City' type='text' onChange={(event) => this.captureInfo(event)}/>
+            <button className = 'searchButton' title = 'Search'
+              onClick = { (event) => {
+                this.updateLocation()
+                this.props.handleUpdateLocation(this.state)
+                this.props.changeWelcomeState()
+              }
+              }
+            /> 
+          </div>
+        </div>
       </div>
 
     )
