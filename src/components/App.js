@@ -5,8 +5,8 @@ import Card from './Card';
 import './styles/App.css'
 import React, { Component } from 'react';
 import DataCleaner from './DataCleaner';
-import GetData from './GetData';
 import Welcome from './Welcome';
+import APIKey from './APIKey.js'
 
 
 class App extends Component {
@@ -33,6 +33,7 @@ class App extends Component {
       }
     })
     this.makeAPICall(selectedCity, selectedState);
+    setTimeout(this.changeWelcomeState, 1000)
   } 
 
   changeWelcomeState() {
@@ -42,26 +43,32 @@ class App extends Component {
   }
 
   makeAPICall(selectedCity, selectedState) {
-    this.setState({
-      locationWeather: GetData(selectedCity, selectedState)
-    }) 
+    fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${selectedState}/${selectedCity}.json`)
+      .then((response) => {response.json()
+        .then((weatherData) => {
+          this.setState({
+            locationWeather: DataCleaner(weatherData)
+          }) 
+        })
+      })
   }
+  
 
   render() {
     if (this.state.welcome) {
       return (<Welcome 
         changeWelcomeState = {this.changeWelcomeState}
         setLocationState = {this.setLocationState}
-        />)
+      />)
     } else {
-    return (
-      <div className ='App'>
-        <Background />
-        <Search location = {this.state.location}/>
-        <CurrentWeather />
-      </div>
-    );
-   }
+      return (
+        <div className ='App'>
+          <Background />
+          <Search location = {this.state.location}/>
+          <CurrentWeather locationWeather = {this.state.locationWeather} />
+        </div>
+      );
+    }
   }
 }
 
