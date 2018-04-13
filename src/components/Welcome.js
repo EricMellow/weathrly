@@ -36,7 +36,6 @@ class Welcome extends Component {
             <button className = 'searchButton'
               onClick = { () => {
                 this.props.setLocationState(this.updateLocation()[0], this.updateLocation()[1])
-                // this.props.changeWelcomeState()
               }
               }
             />

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import data from './Data'
+// import data from './Data'
 
 const DataCleaner = (data) => {
   console.log(data)

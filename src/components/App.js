@@ -64,7 +64,11 @@ class App extends Component {
       return (
         <div className ='App'>
           <Background />
-          <Search location = {this.state.location}/>
+          <Search location = {this.state.location}
+            changeWelcomeState = {this.changeWelcomeState}
+            setLocationState = {this.setLocationState}
+            date = {this.state.locationWeather.currentWeather.currentDate}
+          />
           <CurrentWeather locationWeather = {this.state.locationWeather} />
         </div>
       );
