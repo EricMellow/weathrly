@@ -62,7 +62,7 @@ article {
     margin-bottom: 12vh; 
 }
 
-button {
+.forecastButton {
     border: none;
     background: none;
     color: #fff;
@@ -73,4 +73,6 @@ button {
     outline-color: none;
 }
 
-button:focus {outline:0;}
+.forecastButton:focus {
+    outline:0;
+}

@@ -6,7 +6,7 @@
   justify-content: space-between;
 }
 
-input{
+.searchInput{
   border: none;
   background: none;
   color:white;
@@ -15,11 +15,11 @@ input{
   height: 4vh;
 }
 
-input::placeholder{
+.searchInput::placeholder{
   color:white;
 }
 
-input:focus{
+.searchInput:focus{
   outline: none;
   opacity: .5;
 }

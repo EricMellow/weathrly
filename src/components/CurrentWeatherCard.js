@@ -1,0 +1,35 @@
+import React, {Component} from 'react'
+import TenDayForecast from './TenDayForecast';
+import SevenHourForecast from './SevenHourForecast';
+
+
+class CurrentWeatherCard extends Component {
+  constructor (props) {
+    super()
+    
+  }
+  
+  render () {
+    const weatherData = this.props.locationWeather.currentWeather;
+    console.log('in currentweathercard', weatherData);
+    return (
+      <div className='CurrentWeather'>
+        <h1 className='current-temp'>{Math.round(weatherData.currentTemp)}°</h1>
+        <h2> {weatherData.currentWeatherShortSummary}</h2>
+        <div className='high-and-low'>
+          <h3>{weatherData.highTemperature}°</h3>
+          <h3 className='low-temp'>{weatherData.lowTemperature}°</h3>
+        </div>
+        <article>{weatherData.currentWeatherLongSummary}</article>
+        <div className='view-buttons'>
+          <button className = 'forecastButton' onClick={this.props.showSevenHour}> 7 hour forecast </button>
+          <button className = 'forecastButton' onClick={this.props.showTen}> 10 day forecast</button>
+        </div>
+        {this.props.tenDayClicked ? <TenDayForecast /> : null}
+        {this.props.sevenHourClicked ? <SevenHourForecast /> : null}  
+      </div>
+    )
+  }
+}
+
+export default CurrentWeatherCard;
