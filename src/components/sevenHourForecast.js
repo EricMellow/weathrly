@@ -15,7 +15,7 @@ const SevenHourForecast = (weather) => {
   })
 
   return (
-    <div className='sevenHourForecast'>
+    <div className='sevenHourDiv'>
       {sevenDayCards}
     </div>
   )
