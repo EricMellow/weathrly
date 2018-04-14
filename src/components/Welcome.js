@@ -29,20 +29,19 @@ class Welcome extends Component {
 
   render () {
     if(this.props.error) {
-      
       return (
         <div className = "Welcome">
           <div className = 'blackBackground'>
             <h2> ERRRRRORRRRRRRRRrrrr </h2>
             <h5> Current Location </h5>
             <div className = 'container'>
-              <input className = 'locationInput' type='text' onChange={(event) => this.captureInfo(event)}/>
+              <input className = 'locationInput' type='text' required ='true' onChange={(event) => this.captureInfo(event)}/>
               <button className = 'searchButton'
                 onClick = { () => {
                   this.props.setLocationState(this.updateLocation()[0], this.updateLocation()[1])
                 }
                 }
-              />
+              >Search</button>
             </div>
           </div>  
         </div>
@@ -52,15 +51,15 @@ class Welcome extends Component {
     return (
       <div className = "Welcome">
         <div className = 'blackBackground'>
-          <h5> Current Location </h5>
+          <h5> Search your Location </h5>
           <div className = 'container'>
-            <input className = 'locationInput' type='text' onChange={(event) => this.captureInfo(event)}/>
-            <button className = 'searchButton'
+            <input className = 'locationInput' placeholder ='Enter your City and State' type='text' onChange={(event) => this.captureInfo(event)}/>
+            <button className = 'searchButton' 
               onClick = { () => {
                 this.props.setLocationState(this.updateLocation()[0], this.updateLocation()[1])
               }
               }
-            />
+            >Search </button>
           </div>
         </div>  
       </div>
