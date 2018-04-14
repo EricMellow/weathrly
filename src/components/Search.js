@@ -30,7 +30,7 @@ class Search extends Component {
       <div className = 'searchBar'> 
         <input className = 'searchInput' 
           type='text' 
-          placeholder = {this.state.locationInput} 
+          placeholder = {`${this.props.location.selectedCity}, ${this.props.location.selectedState}`} 
           onKeyUp={(event) => {
             if(event.key === 'Enter') {
               this.props.setLocationState(this.updateLocation()[0], this.updateLocation()[1])

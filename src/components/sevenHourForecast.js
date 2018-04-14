@@ -2,24 +2,23 @@ import React, { Component } from 'react';
 import Card from './Card';
 import './styles/sevenHourForecast.css';
 
-class SevenHourForecast extends Component {
-  constructor () {
-    super()
-  }
-
-  render () {
+const SevenHourForecast = (weather) => {
+  const sevenDayCards = weather.map((hour, index) => {
     return (
-      <div className ='sevenHourDiv'> 
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <Card
+        key={index}
+        hour={hour.hour}
+        conditions={hour.conditions}
+        temp={hour.temp}
+      />
     )
-  }
+  })
+
+  return (
+    <div className='sevenHourForecast'>
+      {sevenDayCards}
+    </div>
+  )
 }
 
 export default SevenHourForecast;

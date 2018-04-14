@@ -11,7 +11,6 @@ class CurrentWeatherCard extends Component {
   
   render () {
     const weatherData = this.props.locationWeather.currentWeather;
-    console.log('in currentweathercard', weatherData);
     return (
       <div className='CurrentWeather'>
         <h1 className='current-temp'>{Math.round(weatherData.currentTemp)}°</h1>
@@ -25,8 +24,8 @@ class CurrentWeatherCard extends Component {
           <button className = 'forecastButton' onClick={this.props.showSevenHour}> 7 hour forecast </button>
           <button className = 'forecastButton' onClick={this.props.showTen}> 10 day forecast</button>
         </div>
-        {this.props.tenDayClicked ? <TenDayForecast /> : null}
-        {this.props.sevenHourClicked ? <SevenHourForecast /> : null}  
+        {this.props.tenDayClicked ? TenDayForecast(this.props.locationWeather.tenDayWeather) : null}
+        {this.props.sevenHourClicked ? SevenHourForecast(this.props.locationWeather.sevenHourWeather) : null}  
       </div>
     )
   }
