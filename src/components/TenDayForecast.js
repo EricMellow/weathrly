@@ -9,7 +9,7 @@ const TenDayForecast = (weather) => {
             <Card 
                 key = {index}
                 day = {day.day}
-                conditions = {day.conditions}
+                icon = {day.icon}
                 highTemp = {day.highTemp}
                 lowTemp = {day.lowTemp}
             />

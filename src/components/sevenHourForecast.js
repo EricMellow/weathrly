@@ -8,7 +8,7 @@ const SevenHourForecast = (weather) => {
       <Card
         key={index}
         hour={hour.hour}
-        conditions={hour.conditions}
+        icon={hour.icon}
         temp={hour.temp}
       />
     )
