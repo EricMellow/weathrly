@@ -5,7 +5,7 @@ const DataCleaner = (data) => {
   let hourlyArray = data.hourly_forecast.map(hour => {
     return {
       hour: hour.FCTTIME.civil,
-      conditions: hour.wx,
+      icon: hour.icon,
       temp: hour.temp.english
     }
   }).slice(0, 7)
@@ -17,14 +17,14 @@ const DataCleaner = (data) => {
       currentLocation: data.current_observation.display_location.full,
       highTemperature: data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
       lowTemperature: data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
-      currentWeatherShortSummary: data.current_observation.weather,
+      icon: data.current_observation.icon,
       currentWeatherLongSummary: data.forecast.txt_forecast.forecastday[0].fcttext
     },
     sevenHourWeather: hourlyArray,
     tenDayWeather: data.forecast.simpleforecast.forecastday.map(day => {
       return {
         day: day.date.weekday_short,
-        conditions: day.conditions,
+        icon: day.icon,
         highTemp: day.high.fahrenheit,
         lowTemp: day.low.fahrenheit
       }

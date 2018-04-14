@@ -2,7 +2,7 @@
 
 .Card{
   margin-left: 2vw; 
-  width: 125px;
+  width: 325px;
   height: 25vh;
   text-align: center;
   background-color:hsla(0,0%,0%,0.4) ;
@@ -11,6 +11,7 @@
 
 .Card img {
   height: 14vh;
+  opacity: .5;
 }
 
 .Card h3 {
