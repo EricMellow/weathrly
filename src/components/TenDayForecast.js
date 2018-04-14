@@ -2,28 +2,26 @@ import React, { Component } from 'react';
 import Card from './Card';
 import './styles/TenDayForecast.css';
 
-class TenDayForecast extends Component {
-   constructor() {
-    super()
-   }
+const TenDayForecast = (weather) => {
+    console.log(weather)
+    const tenDayCards = weather.map((day, index) => {
+        return (
+            <Card 
+                key = {index}
+                day = {day.day}
+                conditions = {day.conditions}
+                highTemp = {day.highTemp}
+                lowTemp = {day.lowTemp}
+            />
+        )
+    })
 
-render(){
     return(
-        <div className = 'tenDay'>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+        <div className='tenDay'>
+            {tenDayCards}
         </div>
     )
-  } 
-}
+  }
 
 export default TenDayForecast;
 

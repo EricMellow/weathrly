@@ -28,11 +28,12 @@ h2 {
 .high-and-low {
     display: flex;
     width: 50%;
+    height: 575px;
     font-size: 200%;
     font-weight: 300;
     justify-content: space-around;
     align-items: space-around;
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
 h3 {
@@ -48,10 +49,11 @@ h3 {
 article {
     font-weight: 300;
     font-size: 150%;
-    height: 20%;
+    height: 131vh;
     width: 90%;
     text-align: center;
-    margin: 32px auto;
+    margin: 0px auto;
+    overflow: scroll;
 }
 
 .view-buttons {
@@ -59,7 +61,7 @@ article {
     justify-content: space-around;
     align-items: space;
     width: 100%;
-    margin-bottom: 12vh; 
+    height: 677px; 
 }
 
 .forecastButton {

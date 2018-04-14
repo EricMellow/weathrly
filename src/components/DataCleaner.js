@@ -2,7 +2,14 @@ import React, {Component} from 'react';
 // import data from './Data'
 
 const DataCleaner = (data) => {
-  console.log(data)
+  let hourlyArray = data.hourly_forecast.map(hour => {
+    return {
+      hour: hour.FCTTIME.civil,
+      conditions: hour.wx,
+      temp: hour.temp.english
+    }
+  }).slice(0, 7)
+
   return {
     currentWeather: {
       currentTemp: data.current_observation.temp_f,
@@ -13,17 +20,15 @@ const DataCleaner = (data) => {
       currentWeatherShortSummary: data.current_observation.weather,
       currentWeatherLongSummary: data.forecast.txt_forecast.forecastday[0].fcttext
     },
-    sevenHourWeather: {
-      sevenHourForecastHours: data.hourly_forecast.map(hour => hour.FCTTIME.civil).splice(7),
-      sevenHourForecastTemps: data.hourly_forecast.map(day =>  day.temp).splice(7),
-      sevenHourForecastConditions: data.hourly_forecast.map(day => day.condition).splice(7)
-    },
-    tenDayWeather: {
-      tenDayForecastDayNames: data.forecast.simpleforecast.forecastday.map(day => day.date.weekday_short),
-      tenDayForecastIcons: data.forecast.simpleforecast.forecastday.map(day => day.conditions),
-      tenDayForecastHighTemps: data.forecast.simpleforecast.forecastday.map(day => day.high.fahrenheit),
-      tenDayForecastLowTemps: data.forecast.simpleforecast.forecastday.map(day => day.low.fahrenheit)
-    }
+    sevenHourWeather: hourlyArray,
+    tenDayWeather: data.forecast.simpleforecast.forecastday.map(day => {
+      return {
+        day: day.date.weekday_short,
+        conditions: day.conditions,
+        highTemp: day.high.fahrenheit,
+        lowTemp: day.low.fahrenheit
+      }
+    })
   }
 }
 
