@@ -13,10 +13,7 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      location: {
-        selectedCity: '',
-        selectedState: ''
-      },
+      location: '',
       welcome: true,
       locationWeather: {},
       error: false
@@ -26,14 +23,11 @@ class App extends Component {
     this.setLocationState = this.setLocationState.bind(this)
   }
  
-  setLocationState(selectedCity, selectedState) {
+  setLocationState(selectedLocation) {
     this.setState({
-      location: {
-        selectedCity: selectedCity,
-        selectedState: selectedState
-      }
+      location: selectedLocation
     })
-    this.makeAPICall(selectedCity, selectedState);
+    this.makeAPICall(selectedLocation);
     setTimeout(this.changeWelcomeState, 1000)
   } 
 
@@ -43,8 +37,8 @@ class App extends Component {
     })
   }
 
-  makeAPICall(selectedCity, selectedState) {
-    fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/q/${selectedState}/${selectedCity}.json`)
+  makeAPICall(selectedLocation) {
+    fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/geolookup/q/${selectedLocation}.json`)
       .then((response) => {response.json()
         .then((weatherData) => {
           this.setState({
@@ -74,7 +68,7 @@ class App extends Component {
       return (
         <div className ='App'>
           <Background />
-          <Search location = {this.state.location}
+          <Search location = {this.state.locationWeather.currentWeather.currentLocation}
             changeWelcomeState = {this.changeWelcomeState}
             setLocationState = {this.setLocationState}
             date = {this.state.locationWeather.currentWeather.currentDate}

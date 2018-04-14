@@ -10,7 +10,7 @@ class Welcome extends Component {
       userInput: ''
     }
 
-    this.updateLocation = this.updateLocation.bind(this)
+    // this.updateLocation = this.updateLocation.bind(this)
     this.captureInfo = this.captureInfo.bind(this)
     
   }
@@ -21,11 +21,11 @@ class Welcome extends Component {
     })
   }
 
-  updateLocation () {
-    let locationInput = this.state.userInput
-    let locationArray = locationInput.split(', ');
-    return locationArray
-  }
+  // updateLocation () {
+  //   let locationInput = this.state.userInput
+  //   let locationArray = locationInput.split(', ');
+  //   return locationArray
+  // }
 
   render () {
     if(this.props.error) {
@@ -38,7 +38,7 @@ class Welcome extends Component {
               <input className = 'locationInput' type='text' required ='true' onChange={(event) => this.captureInfo(event)}/>
               <button className = 'searchButton'
                 onClick = { () => {
-                  this.props.setLocationState(this.updateLocation()[0], this.updateLocation()[1])
+                  this.props.setLocationState(this.state.userInput)
                 }
                 }
               >Search</button>
@@ -56,7 +56,7 @@ class Welcome extends Component {
             <input className = 'locationInput' placeholder ='Enter your City and State' type='text' onChange={(event) => this.captureInfo(event)}/>
             <button className = 'searchButton' 
               onClick = { () => {
-                this.props.setLocationState(this.updateLocation()[0], this.updateLocation()[1])
+                this.props.setLocationState(this.state.userInput)
               }
               }
             >Search </button>

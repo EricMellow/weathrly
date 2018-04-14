@@ -9,7 +9,7 @@ class Search extends Component {
       userInput: ''
     }
 
-    this.updateLocation = this.updateLocation.bind(this)
+    // this.updateLocation = this.updateLocation.bind(this)
     this.captureInfo = this.captureInfo.bind(this)
   }
 
@@ -19,21 +19,21 @@ class Search extends Component {
     })
   }
 
-  updateLocation () {
-    let locationInput = this.state.userInput
-    let locationArray = locationInput.split(', ');
-    return locationArray
-  }
+  // updateLocation () {
+  //   let locationInput = this.state.userInput
+   
+  //   return locationArray
+  // }
 
   render () {
     return (
       <div className = 'searchBar'> 
         <input className = 'searchInput' 
           type='text' 
-          placeholder = {`${this.props.location.selectedCity}, ${this.props.location.selectedState}`} 
+          placeholder = {`${this.props.location}`} 
           onKeyUp={(event) => {
             if(event.key === 'Enter') {
-              this.props.setLocationState(this.updateLocation()[0], this.updateLocation()[1])
+              this.props.setLocationState(this.state.userInput)
             }    
             this.captureInfo(event) 
           }}
