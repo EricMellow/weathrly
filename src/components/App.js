@@ -6,8 +6,7 @@ import './styles/App.css'
 import React, { Component } from 'react';
 import DataCleaner from './DataCleaner';
 import Welcome from './Welcome';
-import ErrorMessage from './ErrorMessage.js';
-import APIKey from './APIKey.js'
+import APIKey from './APIKey.js';
 
 
 class App extends Component {
