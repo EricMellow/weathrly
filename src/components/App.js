@@ -21,6 +21,7 @@ class App extends Component {
 
     this.changeWelcomeState = this.changeWelcomeState.bind(this);
     this.setLocationState = this.setLocationState.bind(this)
+    this.sendToStorage = this.sendToStorage.bind(this)
   }
  
   setLocationState(selectedLocation) {
@@ -28,8 +29,14 @@ class App extends Component {
       location: selectedLocation
     })
     this.makeAPICall(selectedLocation);
-    setTimeout(this.changeWelcomeState, 1000)
+    setTimeout(this.changeWelcomeState, 750)
+    setTimeout(this.sendToStorage, 500)
   } 
+
+  sendToStorage() {
+    let stringifiedLocation = JSON.stringify(this.state.locationWeather.currentWeather.currentLocation);
+    localStorage.setItem(1, stringifiedLocation);
+  }
 
   changeWelcomeState() {
     this.setState({
@@ -52,6 +59,26 @@ class App extends Component {
     })
   }
   
+  componentDidMount() {
+    if (localStorage.getItem(1)) {
+      this.changeWelcomeState()
+      let storedLocation = localStorage.getItem(1);
+      let parsedLocation = JSON.parse(storedLocation);
+      fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/geolookup/q/${parsedLocation}.json`)
+        .then((response) => {
+          response.json()
+          .then((weatherData) => {
+            this.setState({
+              locationWeather: DataCleaner(weatherData)
+            })
+          }).catch(error => {
+            this.setState({
+              error: true
+            })
+          })
+        })
+    }
+  }
 
   render() {
     if(this.state.error) {
