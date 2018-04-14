@@ -6,6 +6,7 @@ import './styles/App.css'
 import React, { Component } from 'react';
 import DataCleaner from './DataCleaner';
 import Welcome from './Welcome';
+import ErrorMessage from './ErrorMessage.js';
 import APIKey from './APIKey.js'
 
 
@@ -19,6 +20,7 @@ class App extends Component {
       },
       welcome: true,
       locationWeather: {},
+      error: false
     };
 
     this.changeWelcomeState = this.changeWelcomeState.bind(this);
@@ -48,13 +50,22 @@ class App extends Component {
         .then((weatherData) => {
           this.setState({
             locationWeather: DataCleaner(weatherData)
-          }) 
+          })
+        }).catch(error => { 
+          this.setState({
+          error: true
+          })
         })
-      })
+    })
   }
   
 
   render() {
+    if(this.state.error) {
+      return (
+        <Welcome error = {this.state.error}/>
+      )
+    }
     if (this.state.welcome) {
       return (<Welcome 
         changeWelcomeState = {this.changeWelcomeState}
