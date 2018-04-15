@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import './styles/Welcome.css'
+import './styles/Welcome.css';
+import PrefixTrie from './Prefixtrie'
+import  cities from './largest1000cities'
 
 
 class Welcome extends Component {
@@ -7,7 +9,8 @@ class Welcome extends Component {
     super(props);
   
     this.state = {
-      userInput: ''
+      userInput: '',
+      prefixTrie: new PrefixTrie()
     }
 
     this.captureInfo = this.captureInfo.bind(this)
@@ -15,6 +18,8 @@ class Welcome extends Component {
   }
 
   captureInfo (event) {
+    this.state.prefixTrie.populate(cities)
+    console.log(this.state.prefixTrie)
     this.setState({
       userInput: event.target.value,
     })
