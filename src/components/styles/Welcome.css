@@ -6,6 +6,16 @@
   z-index: -1;
   position: fixed;
   text-align: center;
+  background-color:hsla(0,0%,0%,0.4) ;
+}
+
+.logo{
+  height: 23vh;
+  width: 33vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 50px auto 0px auto;
+  background-image: url('http://wrs8a3ki8zth7aut28u4yi107g.wpengine.netdna-cdn.com/wp-content/uploads/2014/09/w-logo.png')
 }
 
 .searchButton {
@@ -56,7 +66,7 @@
 }
 
 h5 {
-  margin-top: 20vh;
+  margin-top: 7vh;
   font-size: 9vh;
   color: white;
   text-shadow: 2px 2px #000000;

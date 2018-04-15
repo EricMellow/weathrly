@@ -52,6 +52,7 @@ class Welcome extends Component {
     return (
       <div className = "Welcome">
         <div className = 'blackBackground'>
+          <div className = 'logo'/>
           <h5> Search your Location </h5>
           <div className = 'container'>
             <input className = 'locationInput' 
