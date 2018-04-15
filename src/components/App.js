@@ -64,19 +64,7 @@ class App extends Component {
       this.changeWelcomeState()
       let storedLocation = localStorage.getItem(1);
       let parsedLocation = JSON.parse(storedLocation);
-      fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/geolookup/q/${parsedLocation}.json`)
-        .then((response) => {
-          response.json()
-          .then((weatherData) => {
-            this.setState({
-              locationWeather: DataCleaner(weatherData)
-            })
-          }).catch(error => {
-            this.setState({
-              error: true
-            })
-          })
-        })
+      this.makeAPICall(parsedLocation)
     }
   }
 

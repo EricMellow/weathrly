@@ -42,10 +42,10 @@ class CurrentWeather extends Component {
     console.log(this.props)
     return (
       <CurrentWeatherCard  locationWeather = {this.props.locationWeather}
-                           tenDayClicked = {this.state.tenDayClicked} 
-                           sevenHourClicked = {this.state.sevenHourClicked}
-                           showSevenHour = {this.showSevenHour}
-                           showTen = {this.showTen}
+        tenDayClicked = {this.state.tenDayClicked} 
+        sevenHourClicked = {this.state.sevenHourClicked}
+        showSevenHour = {this.showSevenHour}
+        showTen = {this.showTen}
       />
     );
   };

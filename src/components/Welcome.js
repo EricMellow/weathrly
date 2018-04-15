@@ -10,7 +10,6 @@ class Welcome extends Component {
       userInput: ''
     }
 
-    // this.updateLocation = this.updateLocation.bind(this)
     this.captureInfo = this.captureInfo.bind(this)
     
   }
@@ -21,12 +20,6 @@ class Welcome extends Component {
     })
   }
 
-  // updateLocation () {
-  //   let locationInput = this.state.userInput
-  //   let locationArray = locationInput.split(', ');
-  //   return locationArray
-  // }
-
   render () {
     if(this.props.error) {
       return (
@@ -35,7 +28,15 @@ class Welcome extends Component {
             <h2> ERRRRRORRRRRRRRRrrrr </h2>
             <h5> Current Location </h5>
             <div className = 'container'>
-              <input className = 'locationInput' type='text' required ='true' onChange={(event) => this.captureInfo(event)}/>
+              <input className = 'locationInput' 
+                type='text' 
+                onKeyUp={(event) => {
+                  if(event.key === 'Enter') {
+                    this.props.setLocationState(this.state.userInput)
+                  }
+                  this.captureInfo(event)}
+                }   
+              />
               <button className = 'searchButton'
                 onClick = { () => {
                   this.props.setLocationState(this.state.userInput)
@@ -53,7 +54,16 @@ class Welcome extends Component {
         <div className = 'blackBackground'>
           <h5> Search your Location </h5>
           <div className = 'container'>
-            <input className = 'locationInput' placeholder ='Enter your City and State' type='text' onChange={(event) => this.captureInfo(event)}/>
+            <input className = 'locationInput' 
+              placeholder ='Enter your City and State' 
+              type='text' 
+              onKeyUp={(event) => {
+                if(event.key === 'Enter') {
+                  this.props.setLocationState(this.state.userInput)
+                }
+                this.captureInfo(event)}
+              }
+            />
             <button className = 'searchButton' 
               onClick = { () => {
                 this.props.setLocationState(this.state.userInput)
