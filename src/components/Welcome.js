@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles/Welcome.css';
 import PrefixTrie from './Prefixtrie'
 import  cities from './largest1000cities'
+import Suggestions from './Suggestions'
 
 
 class Welcome extends Component {
@@ -13,13 +14,19 @@ class Welcome extends Component {
       prefixTrie: new PrefixTrie()
     }
 
+    this.state.prefixTrie.populate(cities)
     this.captureInfo = this.captureInfo.bind(this)
     
   }
 
+  suggestCities() {
+    this.state.prefixTrie.suggest(this.state.userInput)
+    //create a dropdown
+    //populate it with this.state.prefixtrie.suggetionArra
+  }
+
   captureInfo (event) {
-    this.state.prefixTrie.populate(cities)
-    console.log(this.state.prefixTrie)
+    this.suggestCities()
     this.setState({
       userInput: event.target.value,
     })
@@ -63,6 +70,7 @@ class Welcome extends Component {
             <input className = 'locationInput' 
               placeholder ='Enter your City and State' 
               type='text' 
+              list='cities'
               onKeyUp={(event) => {
                 if(event.key === 'Enter') {
                   this.props.setLocationState(this.state.userInput)
@@ -70,6 +78,7 @@ class Welcome extends Component {
                 this.captureInfo(event)}
               }
             />
+              {this.state.prefixTrie.suggestionArray ? Suggestions(this.state.prefixTrie.suggestionArray) : null}
             <button className = 'searchButton' 
               onClick = { () => {
                 this.props.setLocationState(this.state.userInput)
