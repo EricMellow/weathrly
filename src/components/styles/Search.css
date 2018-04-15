@@ -22,7 +22,10 @@
 
 .searchInput:focus{
   outline: none;
-  opacity: .5;
+}
+
+.searchInput:focus::placeholder {
+  color: transparent
 }
 
 h3{

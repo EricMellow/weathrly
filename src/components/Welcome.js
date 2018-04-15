@@ -58,11 +58,10 @@ class Welcome extends Component {
     return (
       <div className = "Welcome">
         <div className = 'blackBackground'>
-          <div className = 'logo'/>
-          <h5> Search your Location </h5>
+          <h5> Weathrly </h5>
           <div className = 'container'>
             <input className = 'locationInput' 
-              placeholder ='Enter your City and State' 
+              placeholder ='Enter City, State or Zip code' 
               type='text' 
               list='cities'
               onKeyUp={(event) => {

@@ -30,7 +30,7 @@ class App extends Component {
     })
     this.makeAPICall(selectedLocation);
     setTimeout(this.changeWelcomeState, 750)
-    setTimeout(this.sendToStorage, 500)
+    setTimeout(this.sendToStorage, 1000)
   } 
 
   sendToStorage() {
