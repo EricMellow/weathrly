@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './styles/Card.css'
-const weatherUndergroundIcons = require('weather-underground-icons');
 
 class Card extends Component {
   constructor(props) {
