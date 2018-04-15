@@ -15,18 +15,12 @@ class Welcome extends Component {
     }
 
     this.state.prefixTrie.populate(cities)
+    this.state.prefixTrie.suggest(this.state.userInput)
     this.captureInfo = this.captureInfo.bind(this)
     
   }
 
-  suggestCities() {
-    this.state.prefixTrie.suggest(this.state.userInput)
-    //create a dropdown
-    //populate it with this.state.prefixtrie.suggetionArra
-  }
-
   captureInfo (event) {
-    this.suggestCities()
     this.setState({
       userInput: event.target.value,
     })
@@ -78,7 +72,7 @@ class Welcome extends Component {
                 this.captureInfo(event)}
               }
             />
-              {this.state.prefixTrie.suggestionArray ? Suggestions(this.state.prefixTrie.suggestionArray) : null}
+            {Suggestions(this.state.prefixTrie.suggestionArray)}
             <button className = 'searchButton' 
               onClick = { () => {
                 this.props.setLocationState(this.state.userInput)
