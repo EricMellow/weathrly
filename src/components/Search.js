@@ -8,8 +8,6 @@ class Search extends Component {
     this.state = {
       userInput: ''
     }
-
-    // this.updateLocation = this.updateLocation.bind(this)
     this.captureInfo = this.captureInfo.bind(this)
   }
 
@@ -18,16 +16,10 @@ class Search extends Component {
       userInput: event.target.value,
     })
   }
-
-  // updateLocation () {
-  //   let locationInput = this.state.userInput
-   
-  //   return locationArray
-  // }
-
   render () {
     return (
       <div className = 'searchBar'> 
+        <div className = 'searchIcon'/>
         <input className = 'searchInput' 
           type='text' 
           placeholder = {`${this.props.location}`} 

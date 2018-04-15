@@ -1,6 +1,8 @@
 @import url('reset.css');
 
 .Card{
+  padding-top: 5vh;
+  box-sizing: border-box;
   margin-left: 2vw; 
   width: 325px;
   height: 25vh;
@@ -10,8 +12,8 @@
 }
 
 .Card img {
-  height: 14vh;
-  opacity: .5;
+  height: 7vh;
+  opacity: .8;
 }
 
 .Card h3 {

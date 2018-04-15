@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import data from './Data'
 
 const DataCleaner = (data) => {
   let hourlyArray = data.hourly_forecast.map(hour => {

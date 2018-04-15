@@ -29,3 +29,10 @@ h3{
   color: white;
   height: 5vh;
 }
+
+.searchIcon {
+  width: 5vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('../../assets/search.png')
+}
