@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card';
 import './styles/TenDayForecast.css';
 
-const TenDayForecast = (weather) => {
+const TenDayForecast = ({weather}) => {
   const tenDayCards = weather.map((day, index) => {
     return (
         <Card 

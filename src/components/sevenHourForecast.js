@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card';
 import './styles/sevenHourForecast.css';
 
-const SevenHourForecast = (weather) => {
+const SevenHourForecast = ({weather}) => {
   const sevenDayCards = weather.map((hour, index) => {
     return (
       <Card
