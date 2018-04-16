@@ -1,58 +1,38 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CurrentWeatherCard from '../src/components/Search';
+import Search from '../src/components/Search';
 
 
-describe('Search', () => { 
+describe('Search', () => {
+  let SearchComponent;
+
+
+  beforeEach(() => {
+    SearchComponent = shallow(<Search 
+      location='Denver, CO' 
+      changeWelcomeState={jest.fn()} 
+      setLocationState={jest.fn()} 
+      date= 'Wed, 27 Jun 2012 17:27:13 -0700' />);
+  });
 
   it('should exist', () => {
-    expect(CurrentWeatherCard).toBeDefined();
+    expect(SearchComponent).toBeDefined();
   });
-})
-//   let CurrentWeatherCardComponent;
-//   const weatherProps = {
-//     tenDayForecast: jest.fn(),
-//     tenDayClicked: true,
-//     currentWeather: {
-//       currentTemp: 64,
-//       currentDate: "Wed, 27 Jun 2012 17:27:13 -0700",
-//       currentLocation: 'Lincoln, NE',
-//       highTemperature: 72,
-//       lowTemperature: 53,
-//       icon: "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif",
-//       currentWeatherLongSummary: 'What a nice fucking day'
-//     }
-//   };
 
-//   beforeEach(() => {
-//     CurrentWeatherCardComponent = shallow(<CurrentWeatherCard locationWeather={weatherProps} />);
-//   });
+  it('should have a userInput state that defaults to false', () => {
+    const expectation = '';
 
-//   it('should exist', () => {
-//     expect(CurrentWeatherCardComponent).toBeDefined();
-//   });
+    expect(SearchComponent.state('userInput')).toEqual(expectation);
+  });
 
-//   it('should render a current weather card with output from the props it was passed', () => {
-//     expect(CurrentWeatherCardComponent.find('.current-temp').text()).toBe('64°');
-//   });
+  it('should have prefixTrie that defaults to a clean PrefixTrie', () => {
+    const expectation = {
+      root: {},
+      suggestionArray: [],
+      wordCount: 0
+    };
 
-//   it('should render a current weather card with a high temperature from the props it was passed', () => {
-//     expect(CurrentWeatherCardComponent.find('.high-temp').text()).toBe('72°');
-//   });
+    expect(SearchComponent.state('prefixTrie')).toEqual(expectation);
+  });
 
-//   it('should render a current weather card with a low temperature from the props it was passed', () => {
-//     expect(CurrentWeatherCardComponent.find('.low-temp').text()).toBe('53°');
-//   });
-
-//   it('should render a current weather card with a long summary from the props it was passed', () => {
-//     expect(CurrentWeatherCardComponent.find('.longSummary').text()).toBe('What a nice fucking day');
-//   });
-
-//   // it('renders TenDayForecast when tenDayClicked is true', () => {
-//   //   console.log(CurrentWeatherCardComponent.debug())
-//   //   const spy = jest.spyOn(CurrentWeatherCardComponent, 'tenDayForecast')
-//   //   CurrentWeatherCardComponent.instance().find('.tenDayButton').simulate('click')
-//   //   expect(spy).toHaveBeenCalled();
-//   // })
-
-// });
+});

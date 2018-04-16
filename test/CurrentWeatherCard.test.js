@@ -10,6 +10,7 @@ describe('CurrentWeatherCard', () => {
   const weatherProps = {
       tenDayForecast: jest.fn(),
       tenDayClicked: true,
+      sevenHourClicked: false,
       currentWeather: {
         currentTemp: 64,
         currentDate: "Wed, 27 Jun 2012 17:27:13 -0700",
@@ -45,11 +46,27 @@ describe('CurrentWeatherCard', () => {
     expect(CurrentWeatherCardComponent.find('.longSummary').text()).toBe('What a nice fucking day');
   });
 
-  // it('renders TenDayForecast when tenDayClicked is true', () => {
-  //   console.log(CurrentWeatherCardComponent.debug())
-  //   const spy = jest.spyOn(CurrentWeatherCardComponent, 'tenDayForecast')
-  //   CurrentWeatherCardComponent.instance().find('.tenDayButton').simulate('click')
-  //   expect(spy).toHaveBeenCalled();
-  // })
+  it('renders TenDayForecast when tenDayClicked is true', () => {
+    expect(CurrentWeatherCardComponent.find('.tenDay'));
+  })
+
+  it('renders SevenHourForecast when sevenHourClicked is true', () => {
+    const weatherProps = {
+      tenDayForecast: jest.fn(),
+      tenDayClicked: false,
+      sevenHourClicked: true,
+      currentWeather: {
+        currentTemp: 64,
+        currentDate: "Wed, 27 Jun 2012 17:27:13 -0700",
+        currentLocation: 'Lincoln, NE',
+        highTemperature: 72,
+        lowTemperature: 53,
+        icon: "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif",
+        currentWeatherLongSummary: 'What a nice fucking day'
+      }
+    };
+    const CurrentWeatherCardComponent = shallow(<CurrentWeatherCard locationWeather={weatherProps} />);
+    expect(CurrentWeatherCardComponent.find('.sevenHourDiv'));
+  })
 
 });

@@ -89,6 +89,7 @@ class App extends Component {
         </div>
       );
     }
+
     if (this.state.welcome) {
       return (<Welcome 
         changeWelcomeState = {this.changeWelcomeState}

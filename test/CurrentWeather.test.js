@@ -34,15 +34,16 @@ describe('CurrentWeather', () => {
   });
 
   it('should toggle the sevenHourClicked state on click ', () => {
-    const expectation = true
-    const currentState = false
+    const expectation = true;
+    const currentState = false;
+
     CurrentWeatherComponent.setState({sevenHourClicked: currentState})
-    CurrentWeatherComponent.instance().showTen()
+    CurrentWeatherComponent.instance().showTen();
     expect(CurrentWeatherComponent.state('tenDayClicked')).toEqual(expectation)
   });
 
   it('should render the currentWeatherCard component', () => {
-    expect(CurrentWeatherComponent.find(CurrentWeatherCard))
+    expect(CurrentWeatherComponent.find(CurrentWeatherCard));
   })
 
 })
