@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import './styles/Search.css';
 
 const Suggestions = (suggestionArray) => {
-  const suggestionsList = suggestionArray.map((city) => {
+  const suggestionsList = suggestionArray.map((city, index) => {
     return (
       <option
         value={city.word}
+        key={index}
       />
     );
   });
 
   return (
-    <datalist id='cities' className = 'cities'>
+    <datalist id='cities' className ='cities'>
     {suggestionsList}
     </datalist>
   );

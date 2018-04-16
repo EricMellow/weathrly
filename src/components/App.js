@@ -90,20 +90,7 @@ class App extends Component {
         </div>
       );
     }
-    // if (this.state.error && this.state.welcome === false) {
-    //   return (
-    //     <div className ='App'>
-    //       <div className ='error'> X Please Enter a Valid Location </div>
-    //       <Background />
-    //       <Search location = {this.state.locationWeather.currentWeather.currentLocation}
-    //         changeWelcomeState = {this.changeWelcomeState}
-    //         setLocationState = {this.setLocationState}
-    //         date = {this.state.locationWeather.currentWeather.currentDate}
-    //       />
-    //       <CurrentWeather locationWeather = {this.state.locationWeather} />
-    //     </div>
-    //   );
-    // }
+  
     if (this.state.welcome) {
       return (<Welcome 
         changeWelcomeState = {this.changeWelcomeState}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './styles/Search.css';
-import DateCleaner from './DateCleaner';
+import dateCleaner from './dateCleaner';
 import PrefixTrie from './Prefixtrie';
 import cities from './largest1000cities';
 import Suggestions from './Suggestions';
@@ -40,7 +40,7 @@ class Search extends Component {
         />
         {Suggestions(this.state.prefixTrie.suggestionArray)}
         <h3> 
-          {DateCleaner(this.props.date)}
+          {dateCleaner(this.props.date)}
         </h3>
       </div>
     )

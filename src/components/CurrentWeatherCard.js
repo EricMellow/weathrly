@@ -23,8 +23,8 @@ class CurrentWeatherCard extends Component {
           <button className = 'forecastButton' onClick={this.props.showSevenHour}> 7 hour forecast </button>
           <button className = 'forecastButton tenDayButton' onClick={this.props.showTen}> 10 day forecast</button>
         </div>
-        {this.props.tenDayClicked ? TenDayForecast(this.props.locationWeather.tenDayWeather) : null}
-        {this.props.sevenHourClicked ? SevenHourForecast(this.props.locationWeather.sevenHourWeather) : null}  
+        {this.props.tenDayClicked ? <TenDayForecast weather={this.props.locationWeather.tenDayWeather} /> : null}
+        {this.props.sevenHourClicked ? <SevenHourForecast weather={this.props.locationWeather.sevenHourWeather} /> : null}  
       </div>
     );
   }
