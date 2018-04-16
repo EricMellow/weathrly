@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './styles/Search.css';
 
 const Suggestions = (suggestionArray) => {
-
-  const suggestionsList = suggestionArray.map((city, index) => {
+  const suggestionsList = suggestionArray.map((city,index) => {
 
     return (
       <option

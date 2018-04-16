@@ -18,6 +18,7 @@ describe('Search', () => {
 
   it('should exist', () => {
     expect(SearchComponent).toBeDefined();
+
   });
 
   it('should have a userInput state that defaults to false', () => {
@@ -26,14 +27,10 @@ describe('Search', () => {
     expect(SearchComponent.state('userInput')).toEqual(expectation);
   });
 
-  it('should have prefixTrie that defaults to a clean PrefixTrie', () => {
-    const expectation = {
-      root: {},
-      suggestionArray: [],
-      wordCount: 0
-    };
-
-    expect(SearchComponent.state('prefixTrie')).toEqual(expectation);
+  it('should be able to capture user input', () => {
+    expect(SearchComponent.state().userInput).toEqual('');
+    SearchComponent.find('input.searchInput').simulate('keyUp', {target: {value: 'Denver'}})
+    expect(SearchComponent.state().userInput).toEqual('Denver');
   });
 
 });
