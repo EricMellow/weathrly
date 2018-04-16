@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import Search from '../src/components/Search';
 
 
+
 describe('Search', () => {
   let SearchComponent;
 
@@ -17,12 +18,19 @@ describe('Search', () => {
 
   it('should exist', () => {
     expect(SearchComponent).toBeDefined();
+
   });
 
   it('should have a userInput state that defaults to false', () => {
     const expectation = '';
 
     expect(SearchComponent.state('userInput')).toEqual(expectation);
+  });
+
+  it('should be able to capture user input', () => {
+    expect(SearchComponent.state().userInput).toEqual('');
+    SearchComponent.find('input.searchInput').simulate('keyUp', {target: {value: 'Denver'}})
+    expect(SearchComponent.state().userInput).toEqual('Denver');
   });
 
 });
