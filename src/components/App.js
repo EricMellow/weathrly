@@ -10,7 +10,7 @@ import APIKey from './APIKey.js';
 
 
 class App extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       location: '',
@@ -24,7 +24,7 @@ class App extends Component {
     this.sendToStorage = this.sendToStorage.bind(this);
   }
  
-  setLocationState(selectedLocation) {
+  setLocationState (selectedLocation) {
     this.setState({
       location: selectedLocation
     });
@@ -33,19 +33,19 @@ class App extends Component {
     setTimeout(this.sendToStorage, 1000);
   } 
 
-  sendToStorage() {
-    let stringifiedLocation = JSON.stringify(this.state.locationWeather.currentWeather.currentLocation);
-
-    localStorage.setItem(1, stringifiedLocation);
+  sendToStorage () {
+      let stringifiedLocation = JSON.stringify(this.state.locationWeather.currentWeather.currentLocation);
+      localStorage.setItem(1, stringifiedLocation);
   }
 
-  changeWelcomeState() {
+  changeWelcomeState () {
     this.setState({
-      welcome: false
+      welcome: false,
+      error: false
     });
   }
 
-  makeAPICall(selectedLocation) {
+  makeAPICall (selectedLocation) {
     fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/geolookup/q/${selectedLocation}.json`)
       .then((response) => {
         response.json()
@@ -54,14 +54,21 @@ class App extends Component {
             locationWeather: DataCleaner(weatherData)
           });
         }).catch(error => { 
-          this.setState({
-            error: true
-          });
+          this.catchError()
         });
       });
   }
+
+  catchError () {
+    this.setState({
+      welcome: true,
+      error: true,
+      location: '',
+      locationWeather: {},
+    });
+  }
   
-  componentDidMount() {
+  componentDidMount () {
     if (localStorage.getItem(1)) {
       this.changeWelcomeState();
       let storedLocation = localStorage.getItem(1);
@@ -71,12 +78,32 @@ class App extends Component {
     }
   }
 
-  render() {
-    if (this.state.error) {
+  render () {
+    if (this.state.error && this.state.welcome) {
       return (
-        <Welcome error = {this.state.error}/>
+        <div>
+          <div className ='error'> X Please Enter a Valid Location </div>
+          <Welcome
+            changeWelcomeState = {this.changeWelcomeState}
+            setLocationState = {this.setLocationState} 
+          />
+        </div>
       );
     }
+    // if (this.state.error && this.state.welcome === false) {
+    //   return (
+    //     <div className ='App'>
+    //       <div className ='error'> X Please Enter a Valid Location </div>
+    //       <Background />
+    //       <Search location = {this.state.locationWeather.currentWeather.currentLocation}
+    //         changeWelcomeState = {this.changeWelcomeState}
+    //         setLocationState = {this.setLocationState}
+    //         date = {this.state.locationWeather.currentWeather.currentDate}
+    //       />
+    //       <CurrentWeather locationWeather = {this.state.locationWeather} />
+    //     </div>
+    //   );
+    // }
     if (this.state.welcome) {
       return (<Welcome 
         changeWelcomeState = {this.changeWelcomeState}
