@@ -25,14 +25,4 @@ describe('Search', () => {
     expect(SearchComponent.state('userInput')).toEqual(expectation);
   });
 
-  it('should have prefixTrie that defaults to a clean PrefixTrie', () => {
-    const expectation = {
-      root: {},
-      suggestionArray: [],
-      wordCount: 0
-    };
-
-    expect(SearchComponent.state('prefixTrie')).toEqual(expectation);
-  });
-
 });
