@@ -53,7 +53,8 @@ class PrefixTree extends Component {
     this.getSuggestions(word, currentNode);
 
     let sortedObjectsArray = this.suggestionArray.sort((a, b) => b.value - a.value);
-    let cleanArray = sortedObjectsArray.map(object => object.word)
+    let cleanArray = sortedObjectsArray.map(object => object.word);
+    
     return cleanArray;
   }
 
@@ -64,6 +65,7 @@ class PrefixTree extends Component {
     }
 
     let letters = Object.keys(currentNode.childrenObj);
+
     letters.forEach(letter => {
       return this.getSuggestions(prefix + letter, currentNode.childrenObj[letter]);
     });
@@ -71,6 +73,7 @@ class PrefixTree extends Component {
 
   select(word) {
     let currentNode = this.root;
+
     for (let i = 0; i < word.length; i++) {
       if (currentNode.childrenObj[word[i]]) {
         currentNode = currentNode.childrenObj[word[i]];

@@ -6,8 +6,8 @@ const DataCleaner = (data) => {
       hour: hour.FCTTIME.civil,
       icon: hour.icon,
       temp: hour.temp.english
-    }
-  }).slice(0, 7)
+    };
+  }).slice(0, 7);
 
   return {
     currentWeather: {
@@ -26,10 +26,10 @@ const DataCleaner = (data) => {
         icon: day.icon,
         highTemp: day.high.fahrenheit,
         lowTemp: day.low.fahrenheit
-      }
+      };
     })
-  }
-}
+  };
+};
 
 export default DataCleaner;
 

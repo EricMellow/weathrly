@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './styles/Welcome.css';
-import PrefixTrie from './Prefixtrie'
-import  cities from './largest1000cities'
-import Suggestions from './Suggestions'
+import PrefixTrie from './Prefixtrie';
+import  cities from './largest1000cities';
+import Suggestions from './Suggestions';
 
 
 class Welcome extends Component {
@@ -12,22 +12,20 @@ class Welcome extends Component {
     this.state = {
       userInput: '',
       prefixTrie: new PrefixTrie()
-    }
-
-    this.state.prefixTrie.populate(cities)
-    this.state.prefixTrie.suggest(this.state.userInput)
-    this.captureInfo = this.captureInfo.bind(this)
-    
+    };
+    this.state.prefixTrie.populate(cities);
+    this.state.prefixTrie.suggest(this.state.userInput);
+    this.captureInfo = this.captureInfo.bind(this);
   }
 
   captureInfo (event) {
     this.setState({
-      userInput: event.target.value,
-    })
+      userInput: event.target.value
+    });
   }
 
   render () {
-    if(this.props.error) {
+    if (this.props.error) {
       return (
         <div className = "Welcome">
           <div className = 'blackBackground'>
@@ -37,22 +35,23 @@ class Welcome extends Component {
               <input className = 'locationInput' 
                 type='text' 
                 onKeyUp={(event) => {
-                  if(event.key === 'Enter') {
-                    this.props.setLocationState(this.state.userInput)
+                  if (event.key === 'Enter') {
+                    this.props.setLocationState(this.state.userInput);
                   }
-                  this.captureInfo(event)}
+                  this.captureInfo(event);
+                }
                 }   
               />
               <button className = 'searchButton'
                 onClick = { () => {
-                  this.props.setLocationState(this.state.userInput)
+                  this.props.setLocationState(this.state.userInput);
                 }
                 }
               >Search</button>
             </div>
           </div>  
         </div>
-      )
+      );
 
     }
     return (
@@ -65,23 +64,24 @@ class Welcome extends Component {
               type='text' 
               list='cities'
               onKeyUp={(event) => {
-                if(event.key === 'Enter') {
-                  this.props.setLocationState(this.state.userInput)
+                if (event.key === 'Enter') {
+                  this.props.setLocationState(this.state.userInput);
                 }
-                this.captureInfo(event)}
+                this.captureInfo(event);
+              }
               }
             />
             {Suggestions(this.state.prefixTrie.suggestionArray)}
             <button className = 'searchButton' 
               onClick = { () => {
-                this.props.setLocationState(this.state.userInput)
+                this.props.setLocationState(this.state.userInput);
               }
               }
             >Search </button>
           </div>
         </div>  
       </div>
-    )
+    );
   }
 }
 

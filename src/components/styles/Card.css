@@ -1,19 +1,9 @@
 @import url('reset.css');
 
-.Card{
-    padding-top: 5px;
-    box-sizing: border-box;
-    width: 125px;
-    height: 25vh;
-    text-align: center;
-    background-color: hsla(0,0%,0%,0.4);
-    color: white;
-}
-
 .Card img {
   height: 7vh;
-  opacity: .8;
   margin: 20px;
+  opacity: .8;
 }
 
 .Card h3 {
@@ -22,13 +12,23 @@
     margin-bottom: 10px;
 }
 
+.Card h4{
+  font-size: 30px;
+}
+
+.Card{
+  background-color: hsla(0,0%,0%,0.4);
+  box-sizing: border-box;
+  color: white;
+  height: 25vh;
+  padding-top: 5px;
+  text-align: center;
+  width: 125px;
+}
+
 .high-low{
   display: flex;
   justify-content: space-around;
-}
-
-.Card h4{
-  font-size: 30px;
 }
 
 .high{
