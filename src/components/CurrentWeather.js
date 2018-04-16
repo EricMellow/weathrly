@@ -38,7 +38,6 @@ class CurrentWeather extends Component {
   }
     
   render () {
-    // const weatherCleaner = this.props
     return (
       <CurrentWeatherCard  locationWeather = {this.props.locationWeather}
         tenDayClicked = {this.state.tenDayClicked} 

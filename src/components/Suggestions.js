@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/Search.css';
 
 const Suggestions = (suggestionArray) => {
   const suggestionsList = suggestionArray.map((city) => {
@@ -10,7 +11,7 @@ const Suggestions = (suggestionArray) => {
   });
 
   return (
-    <datalist id='cities'>
+    <datalist id='cities' className = 'cities'>
     {suggestionsList}
     </datalist>
   );

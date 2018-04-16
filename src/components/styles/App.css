@@ -2,3 +2,14 @@
   position: absolute;
   width: 100vw;
 }
+
+.error{
+  content: '\e80d';
+  position: absolute;
+  height: 2vh;
+  width: 100%;
+  font-size: 16px;
+  background-color: #FFBABA;
+  color: #D8000C;
+  padding: 12px;
+}
