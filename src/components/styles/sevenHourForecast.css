@@ -1,9 +1,9 @@
 .sevenHourDiv {
-    width: 100%;
-    height: 25vh;
     display: flex;
     flex-wrap: wrap;
+    height: 25vh;
     justify-content: space-around;
     margin: 60vh -33%;
     position: absolute;
+    width: 100%;
 }

@@ -1,30 +1,37 @@
+h5 {
+  color: white;
+  font-size: 9vh;
+  margin-top: 32vh;
+  text-shadow: 2px 2px #000000;
+}
+
 .Welcome {
-  width: 100vw;
-  height: 100vh;
   background-image: url('../../assets/welcome-background.jpg');
   background-size: cover;
-  z-index: -1;
+  background-color:hsla(0,0%,0%,0.4) ;
+  height: 100vh;
   position: fixed;
   text-align: center;
-  background-color:hsla(0,0%,0%,0.4) ;
+  width: 100vw;
+  z-index: -1;
 }
 
 .logo{
-  height: 23vh;
-  width: 33vh;
+  background-image: url('http://wrs8a3ki8zth7aut28u4yi107g.wpengine.netdna-cdn.com/wp-content/uploads/2014/09/w-logo.png');
   background-size: cover;
   background-repeat: no-repeat;
+  height: 23vh;
   margin: 50px auto 0px auto;
-  background-image: url('http://wrs8a3ki8zth7aut28u4yi107g.wpengine.netdna-cdn.com/wp-content/uploads/2014/09/w-logo.png')
+  width: 33vh;
 }
 
 .searchButton {
-  height: 6.3vh;
-  width: 30%;
+  background-color: #486EAB;
   border: none;
   color: white;
-  background-color: #486EAB;
   font-size: 22px;
+  height: 6.3vh;
+  width: 30%;
 }
 
 .material-icons {
@@ -36,38 +43,31 @@
 }
 
 .locationInput {
-  height: 4vh;
   background-color: white;
   border: 1px solid black;
+  color: black;
+  font-size: 3vh;
+  height: 4vh;
   padding: 1vh;
   width: 80%;
-  font-size: 3vh;
-  color: black
 }
 
 .blackBackground {
-  width: 100vw;
   height: 100vh;
-  z-index: 4;
   position: absolute;
+  width: 100vw;
+  z-index: 4;
 }
 
 .container {
-  width: 100vh;
-  height: 12vh;
-  margin: auto;
-  text-align: center;
-  margin-top: 9vh;
+  background-color:rgba(63, 58, 58, 0.8);
   box-sizing: border-box;
   display: flex;
-  padding: 3vh;
+  height: 12vh;
   justify-content: flex-start;
-  background-color:rgba(63, 58, 58, 0.8);
-}
-
-h5 {
-  margin-top: 32vh;
-  font-size: 9vh;
-  color: white;
-  text-shadow: 2px 2px #000000;
+  margin: auto;
+  margin-top: 9vh;
+  padding: 3vh;
+  text-align: center;
+  width: 100vh;
 }

@@ -11,14 +11,14 @@ const SevenHourForecast = (weather) => {
         icon={hour.icon}
         temp={hour.temp}
       />
-    )
-  })
+    );
+  });
 
   return (
     <div className='sevenHourDiv'>
       {sevenDayCards}
     </div>
-  )
-}
+  );
+};
 
 export default SevenHourForecast;

@@ -1,12 +1,11 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import TenDayForecast from './TenDayForecast';
 import SevenHourForecast from './SevenHourForecast';
 
 
 class CurrentWeatherCard extends Component {
-  constructor (props) {
-    super()
-    
+  constructor(props) {
+    super();
   }
   
   render () {
@@ -27,7 +26,7 @@ class CurrentWeatherCard extends Component {
         {this.props.tenDayClicked ? TenDayForecast(this.props.locationWeather.tenDayWeather) : null}
         {this.props.sevenHourClicked ? SevenHourForecast(this.props.locationWeather.sevenHourWeather) : null}  
       </div>
-    )
+    );
   }
 }
 

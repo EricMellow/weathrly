@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Node extends Component{
+class Node extends Component {
   constructor() {
     super();
     this.value = null;

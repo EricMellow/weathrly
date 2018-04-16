@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import './styles/Card.css'
+import './styles/Card.css';
 
 class Card extends Component {
   constructor(props) {
     super();
-
   }
 
   render() {
     if (this.props.day) {
-      return(
+      return (
         <div className = 'Card'> 
           <h3>{this.props.day}</h3>
           <img src={`https://icons.wxug.com/i/c/i/${this.props.icon}.gif`}></img>
@@ -18,7 +17,7 @@ class Card extends Component {
             <h4 className ='low'>{this.props.lowTemp}°</h4>
           </div>
         </div>
-      )
+      );
     } else {
       return (
         <div className='Card'>
@@ -28,7 +27,7 @@ class Card extends Component {
             <h4 className='high'>{this.props.temp}°</h4>
           </div>
         </div>
-      )
+      );
     }
   }
 }
