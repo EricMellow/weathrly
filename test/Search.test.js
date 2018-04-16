@@ -35,6 +35,4 @@ describe('Search', () => {
     expect(SearchComponent.state('prefixTrie')).toEqual(expectation);
   });
 
-
-
 });

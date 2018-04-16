@@ -1,7 +1,6 @@
 import Background from './Background';
 import Search from './Search';
 import CurrentWeather from './CurrentWeather';
-// import Card from './Card';
 import './styles/App.css';
 import React, { Component } from 'react';
 import DataCleaner from './DataCleaner';
@@ -90,7 +89,7 @@ class App extends Component {
         </div>
       );
     }
-  
+
     if (this.state.welcome) {
       return (<Welcome 
         changeWelcomeState = {this.changeWelcomeState}
