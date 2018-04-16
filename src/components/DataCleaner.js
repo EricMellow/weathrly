@@ -1,14 +1,7 @@
 import React, {Component} from 'react';
 
 const DataCleaner = (data) => {
-  let hourlyArray = data.hourly_forecast.map(hour => {
-    return {
-      hour: hour.FCTTIME.civil,
-      icon: hour.icon,
-      temp: hour.temp.english
-    };
-  }).slice(0, 7);
-
+  
   return {
     currentWeather: {
       currentTemp: data.current_observation.temp_f,
@@ -19,7 +12,14 @@ const DataCleaner = (data) => {
       icon: data.current_observation.icon,
       currentWeatherLongSummary: data.forecast.txt_forecast.forecastday[0].fcttext
     },
-    sevenHourWeather: hourlyArray,
+    sevenHourWeather: data.hourly_forecast.map(hour => {
+      return {
+        hour: hour.FCTTIME.civil,
+        icon: hour.icon,
+        temp: hour.temp.english
+      };
+    }).slice(0, 7),
+
     tenDayWeather: data.forecast.simpleforecast.forecastday.map(day => {
       return {
         day: day.date.weekday_short,
