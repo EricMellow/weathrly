@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const DataCleaner = (data) => {
+const dataCleaner = (data) => {
   
   return {
     currentWeather: {
@@ -31,7 +31,7 @@ const DataCleaner = (data) => {
   };
 };
 
-export default DataCleaner;
+export default dataCleaner;
 
 
 

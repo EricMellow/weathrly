@@ -3,7 +3,7 @@ import './styles/Search.css';
 import dateCleaner from './dateCleaner';
 import PrefixTrie from './Prefixtrie';
 import cities from './largest1000cities';
-import Suggestions from './Suggestions';
+import suggestions from './suggestions';
 
 class Search extends Component {
   constructor (props) {
@@ -38,12 +38,12 @@ class Search extends Component {
             this.captureInfo(event);
           }}
         />
-        {Suggestions(this.state.prefixTrie.suggestionArray)}
+        {suggestions(this.state.prefixTrie.suggestionArray)}
         <h3> 
           {dateCleaner(this.props.date)}
         </h3>
       </div>
-    )
+    );
   }
 }
 

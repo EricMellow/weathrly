@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './styles/Welcome.css';
 import PrefixTrie from './Prefixtrie';
 import  cities from './largest1000cities';
-import Suggestions from './Suggestions';
+import suggestions from './suggestions';
 
 
 class Welcome extends Component {
@@ -42,7 +42,7 @@ class Welcome extends Component {
               }
               }
             />
-            {Suggestions(this.state.prefixTrie.suggestionArray)}
+            {suggestions(this.state.prefixTrie.suggestionArray)}
             <button className = 'searchButton' 
               onClick = { () => {
                 this.props.setLocationState(this.state.userInput);

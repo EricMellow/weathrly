@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './styles/Current-weather.css';
-import TenDayForecast from './TenDayForecast';
-import SevenHourForecast from './SevenHourForecast';
 import CurrentWeatherCard from './CurrentWeatherCard';
 
 class CurrentWeather extends Component {

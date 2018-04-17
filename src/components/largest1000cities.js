@@ -999,6 +999,6 @@ const cities = [
   "Spanish Fork, UT",
   "Beloit, WI",
   "Panama City, FL"
-  ];
+];
 
-  export default cities;
+export default cities;
