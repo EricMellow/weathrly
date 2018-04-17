@@ -5,34 +5,39 @@ import Welcome from '../src/components/Welcome';
 import Search from '../src/components/Search';
 import CurrentWeather from '../src/components/CurrentWeather';
 import Background from '../src/components/Background';
+import DataCleaner from '../src/components/DataCleaner';
+import 'jest-localstorage-mock';
 
 describe('App', () => {
   let appComponent;
   
   beforeEach(() => {
     appComponent = shallow(<App />);
+    appComponent.state.location = 'denver';
+    appComponent.state.welcome = true;
+    appComponent.state.error = false
     appComponent.state.locationWeather = {
       currentWeather: {
-          currentTemp: 72,
-          currentDate: 'Wed, 27 Jun 2012 17:27:13 -0700',
-          currentLocation: 'Denver, CO',
-          highTemperature: 75,
-          lowTemperature: 47,
-          icon: 'Clear',
-          currentWeatherLongSummary: 'It is pretty rad out there today'
-        },
+        currentTemp: 72,
+        currentDate: 'Wed, 27 Jun 2012 17:27:13 -0700',
+        currentLocation: 'Denver, CO',
+        highTemperature: 75,
+        lowTemperature: 47,
+        icon: 'Clear',
+        currentWeatherLongSummary: 'It is pretty rad out there today'
+      },
       sevenHourWeather: [{
-            hour: '1:00 PM',
-            icon: 'URL',
-            temp: 72
+        hour: '1:00 PM',
+        icon: 'URL',
+        temp: 72
       }],
     
       tenDayWeather: [{
-            day: 'FRI',
-            icon: 'URL',
-            highTemp: 73,
-            lowTemp: 48
-          }]
+        day: 'FRI',
+        icon: 'URL',
+        highTemp: 73,
+        lowTemp: 48
+      }]
     };
     
     appComponent.makeAPICall = jest.fn()
@@ -62,19 +67,19 @@ describe('App', () => {
     expect(appComponent.state('error')).toEqual(expectation)
   });
 
-  // it('should update the location state when running the updateLocation function', () => {
-  //   appComponent.makeAPICall = jest.fn()
-  //   const expectation = 'Bogota'
-  //   const currentState = ''
-  //   appComponent.instance().setLocationState('Bogota')
-  //   expect(appComponent.state('location')).toEqual(expectation)
-  // });
-
-   it('should update the welcome and error state when calling the changeWelcome state', () => {
-    const expectation = false
-    const currentState = true
-    appComponent.instance().changeWelcomeState()
+  it('should update the welcome and error state when calling the catch Error state', () => {
+    const expectation = true
+    const currentState = false
+    appComponent.instance().catchError()
     expect(appComponent.state('welcome')).toEqual(expectation)
+    expect(appComponent.state('error')).toEqual(expectation)
+  });
+
+  it('should update the location state on the catch error method', () => {
+    const expectation = ''
+    const currentState = 'error'
+    appComponent.instance().catchError()
+    expect(appComponent.state('location')).toEqual(expectation)
   });
 
   it('should render the welcome component', () => {
@@ -92,6 +97,5 @@ describe('App', () => {
   it('should render the current weather component', () => {
     expect(appComponent.find(CurrentWeather));
   });
-
-
+  
 })
