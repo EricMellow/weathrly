@@ -92,7 +92,6 @@ class App extends Component {
 
     if (this.state.welcome) {
       return (<Welcome 
-        changeWelcomeState = {this.changeWelcomeState}
         setLocationState = {this.setLocationState}
       />);
     } else {
@@ -100,7 +99,6 @@ class App extends Component {
         <div className ='App'>
           <Background />
           <Search location = {this.state.locationWeather.currentWeather.currentLocation}
-            changeWelcomeState = {this.changeWelcomeState}
             setLocationState = {this.setLocationState}
             date = {this.state.locationWeather.currentWeather.currentDate}
           />
