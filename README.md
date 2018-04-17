@@ -6,9 +6,6 @@ Weathrly is our first project working with ReactJS, as well as our first project
 ![wireframe](https://raw.githubusercontent.com/EricMellow/weathrly/master/src/assets/7-hour-wireframe.jpg)
 ![wireframe](https://raw.githubusercontent.com/EricMellow/weathrly/master/src/assets/10-day-wireframe.jpg)
 
-Requirements
-Your weather underground API key should not be stored on github. Store it in a seperate file. This file should be added to your .gitignore file.
-
 ## Phase one
 
 Create your Current Weather component
