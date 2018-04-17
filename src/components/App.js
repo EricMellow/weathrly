@@ -3,7 +3,7 @@ import Search from './Search';
 import CurrentWeather from './CurrentWeather';
 import './styles/App.css';
 import React, { Component } from 'react';
-import DataCleaner from './DataCleaner';
+import dataCleaner from './dataCleaner';
 import Welcome from './Welcome';
 import APIKey from './APIKey.js';
 
@@ -33,8 +33,11 @@ class App extends Component {
   } 
 
   sendToStorage () {
-      let stringifiedLocation = JSON.stringify(this.state.locationWeather.currentWeather.currentLocation);
-      localStorage.setItem(1, stringifiedLocation);
+    let stringifiedLocation = JSON.stringify(
+      this.state.locationWeather.currentWeather.currentLocation
+    );
+
+    localStorage.setItem(1, stringifiedLocation);
   }
 
   changeWelcomeState () {
@@ -48,13 +51,13 @@ class App extends Component {
     fetch(`http://api.wunderground.com/api/${APIKey}/conditions/hourly/forecast10day/geolookup/q/${selectedLocation}.json`)
       .then((response) => {
         response.json()
-        .then((weatherData) => {
-          this.setState({
-            locationWeather: DataCleaner(weatherData)
+          .then((weatherData) => {
+            this.setState({
+              locationWeather: dataCleaner(weatherData)
+            });
+          }).catch(error => { 
+            this.catchError();
           });
-        }).catch(error => { 
-          this.catchError()
-        });
       });
   }
 
@@ -63,7 +66,7 @@ class App extends Component {
       welcome: true,
       error: true,
       location: '',
-      locationWeather: {},
+      locationWeather: {}
     });
   }
   
@@ -98,7 +101,8 @@ class App extends Component {
       return (
         <div className ='App'>
           <Background />
-          <Search location = {this.state.locationWeather.currentWeather.currentLocation}
+          <Search 
+            location = {this.state.locationWeather.currentWeather.currentLocation}
             setLocationState = {this.setLocationState}
             date = {this.state.locationWeather.currentWeather.currentDate}
           />

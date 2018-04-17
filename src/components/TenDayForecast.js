@@ -5,21 +5,21 @@ import './styles/TenDayForecast.css';
 const TenDayForecast = ({weather}) => {
   const tenDayCards = weather.map((day, index) => {
     return (
-        <Card 
-            key = {index}
-            day = {day.day}
-            icon = {day.icon}
-            highTemp = {day.highTemp}
-            lowTemp = {day.lowTemp}
-        />
+      <Card 
+        key = {index}
+        day = {day.day}
+        icon = {day.icon}
+        highTemp = {day.highTemp}
+        lowTemp = {day.lowTemp}
+      />
     );
   });
 
-return (
+  return (
     <div className='tenDay'>
-        {tenDayCards}
+      {tenDayCards}
     </div>
-);
+  );
 };
 
 export default TenDayForecast;

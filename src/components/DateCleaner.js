@@ -1,6 +1,6 @@
 
 
-const DateCleaner = (date) => {
+const dateCleaner = (date) => {
   const dateArray = date.split(" ");
 
   dateArray.splice(3, 3);
@@ -103,4 +103,4 @@ const DateCleaner = (date) => {
   return newDate;
 };
 
-export default DateCleaner;
+export default dateCleaner;
