@@ -6,7 +6,6 @@ import Search from '../src/components/Search';
 import CurrentWeather from '../src/components/CurrentWeather';
 import Background from '../src/components/Background';
 import DataCleaner from '../src/components/DataCleaner';
-import 'jest-localstorage-mock';
 
 describe('App', () => {
   let appComponent;
