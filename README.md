@@ -1,3 +1,5 @@
+## Please note that this project is no longer maintained and it is possible that it will not work due to the fact that Weather Underground no longer provides free API keys.
+
 # Weathrly 
 Weathrly is our first project working with ReactJS, as well as our first project interacting with a web API. We started by creating wire frames of what we wanted our app to look like (which can be found below), and we were able to come extremely close on the actual implementation on our app. The project specs are listed below. Even though we had some troubles along the way, we were able to implement the functionality of all five phases.
 
